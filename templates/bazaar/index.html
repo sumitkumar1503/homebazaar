@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <title>
+    
+  </title>
+  <link rel="icon" href="{% static "images/logo.png" %}" type="image/x-icon">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <style>
+    .jumotron{
+      height: fit-content;
+      border-radius:.0rem;
+    }
+    @media screen and (min-width: 601px) {
+  .xyz {
+    font-size: 20px;
+  }
+  .cor{
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .xyz {
+    font-size: 13px;
+  }
+  .cor{
+    height: 200px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  {% include "bazaar/loader_whatsapp.html" %}
+  {% include "bazaar/navbar.html" %}
+  <br><br>
+  <div class="jumbotron" style="background-color: #0274be;  padding-top: 27px;padding-bottom: 2px;border-radius:.0rem; margin-bottom: 0px;">
+    <h5 style="color: white;" class="text-center xyz">किराना सामान चाहिए ? अभी कॉल कीजिये  +91-8709823192 , +91-9708349809
+    </h5>
+  </div>
+
+
+
+  <div id="carouselExampleIndicators" class="carousel slide" style="margin-top: 0%;" data-ride="carousel">
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100 cor" src="{% static "images/slider1.png" %}"  alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 cor" src="{% static "images/slider2.jpeg" %}"  alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 cor" src="{% static "images/slider3.png" %}"  alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+
+   
+    {% include "bazaar/categories.html" %}
+    <br>
+    {% include "bazaar/products.html" %}
+  
+
+  
+
+
+
+  <hr>
+  <br>
+
+  <div class="container text-center" id="contact">
+    <h3 class="text-center font-weight-bold" style="color : #EE1D29">संपर्क करें</h3>
+
+    <div class="row mt-5">
+      <div class="col-lg-3 col-sm-6 slideanim slide">
+        <h4><i class="fas fa-phone-square"></i> Contact</h4>
+        <p class="mt-3 text-danger font-weight-bold"><a style="color: red;" class="contactlink"
+            href="tel:+91 9572181024">91-8709823192 , +91-9708349809</a></p>
+      </div>
+      <div class="col-lg-3 col-sm-6 slideanim slide">
+        <h4><i class="fas fa-envelope"></i> Whatsapp </h4>
+        <p class="mt-3 text-danger font-weight-bold"><a style="color: red;" class="contactlink"
+            href="https://api.whatsapp.com/send?phone=9110176857&text=Hello%20HomeBazaar.%0d%0aMujhe%20kirana%20samaan%20chahiye.&source=&data=#">+91-9110176857, +91-8709823192</a></p>
+      </div>
+      <div class="col-lg-3 col-sm-6 slideanim slide">
+        <h4><i class="fas fa-address-card"></i> Office Address</h4>
+        <p class="mt-3 text-danger font-weight-bold"><a style="color: red;" class="contactlink"
+            href="http://maps.google.com/maps?q=muzaffarpur+bihar">Lal Kothi, Mithanpura, Muzaffarpur</a></p>
+      </div>
+      <div class="col-lg-3 col-sm-6 slideanim slide">
+        <h4><i class="far fa-clock"> </i> Office Hours</h4>
+        <p style="color: red;" class="mt-3 font-weight-bold">6:00 AM to 10:00 PM</p>
+      </div>
+    </div>
+  </div>
+
+
+  <br><br>
+
+
+
+  {% include "bazaar/footer.html" %}
+
+
+
+</body>
+
+</html>
