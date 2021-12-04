@@ -1,7 +1,7 @@
-{% extends 'bazaar/customerbase.html' %}
+{% include "bazaar/navbar.html" %}
 {% load widget_tweaks %}
 {% load static %}
-{% block content %}
+
 
 <head>
   <style media="screen">
@@ -52,7 +52,7 @@
 written By : sumit kumar
 facebook : fb.com/sumit.luv
 -->
-
+<br><br><br><br>
 <!------ signup page for student by admin(sumit)  ---------->
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
@@ -63,26 +63,32 @@ facebook : fb.com/sumit.luv
       </div>
 
       <div class="form-content">
-       <p>
-            <center>{{product.englishname}} | {{product.hindiname}} </center>
-            <p class="card-title text-center">  {{ product.quantity}} - {{ product.price}}</p>
-       </p> 
+       <h6>
+            <center>आप आर्डर कर रहे है - {{product.englishname}} | {{product.hindiname}} </center><br>
+            <p class="card-title text-center">  {{ product.quantity}} का अभी दाम {{ product.price}} ₹ है </p>
+       </h6> <br>
         <div class="row">
           <div class="col-md-6">
             
             <div class="form-group">
-                {% render_field form1.address class="form-control" placeholder="Full Address" %}
+                {% render_field form1.customername required="true" class="form-control" placeholder="आपका नाम" %}
               </div>
-          
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-                {% render_field form1.mobile class="form-control" placeholder="Mobile Number" %}
+              <div class="form-group">
+                {% render_field form1.address required="true" class="form-control" placeholder="पूरा पता" %}
               </div>
             
+          
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group">
+                {% render_field form1.mobile required="true" class="form-control" placeholder="मोबाइल नंबर" %}
+              </div>
+             
           </div>
         </div>
-        <button type="submit" class="btnSubmit">Order</button>
+        <button type="submit" class="btnSubmit">आर्डर करें</button>
       </div>
     </div>
   </div>
@@ -90,5 +96,5 @@ facebook : fb.com/sumit.luv
 </form>
 
 
+{% include "bazaar/footer.html" %}
 
-{% endblock content %}

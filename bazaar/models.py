@@ -40,10 +40,10 @@ class Product(models.Model):
         return self.englishname
 
 class Order(models.Model):
-    customer=models.ForeignKey(Customer, on_delete=models.CASCADE,null=True)
     product=models.ForeignKey(Product, on_delete=models.CASCADE,null=True)
     category=models.ForeignKey( Category,on_delete=models.CASCADE,null=True)
     price=models.PositiveIntegerField(null=True)
+    customername=models.CharField(max_length=200,null=True)
     mobile=models.CharField(max_length=20,null=True)
     address=models.CharField(max_length=500,null=True)
     date=models.DateField(auto_now=True)

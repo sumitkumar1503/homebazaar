@@ -27,7 +27,7 @@ class ProductForm(forms.ModelForm):
 class OrderForm(forms.ModelForm):
     class Meta:
         model=models.Order
-        fields=['address','mobile']
+        fields=['address','mobile','customername']
         widgets = {
         'address':forms.Textarea(attrs={'rows': 3, 'cols': 30})
         }

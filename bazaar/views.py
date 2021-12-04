@@ -35,7 +35,7 @@ def afterlogin_view(request):
 
 def admin_dashboard_view(request):
     mydict={
-        'totalcustomer':models.Customer.objects.all().count(),
+        
         'totalproduct':models.Product.objects.all().count(),
         'totalorder':models.Order.objects.all().count(),
         'totalamount':models.Order.objects.all().aggregate(Sum('price'))['price__sum'],
@@ -202,12 +202,19 @@ def customer_view_product_by_category_view(request,pk):
         return HttpResponseRedirect('afterlogin')
     return render(request,'bazaar/customer_view_products_by_category.html',context=mydict)
 
+def all_product_view(request):
+    products=models.Product.objects.all()
+    mydict={
+        'products':products,
+    }
+    return render(request,'bazaar/all_product.html',context=mydict)
 
-@login_required(login_url='login')
-@user_passes_test(is_customer)
+
+
+
 def order_product_view(request,pk):
     order=models.Order()
-    order.customer=models.Customer.objects.get(user_id=request.user.id)
+    #order.customer=models.Customer.objects.get(user_id=request.user.id)
     order.product=models.Product.objects.get(id=pk)
     order.category=models.Category.objects.get(id=order.product.categoryid)
     order.price=order.product.price
@@ -224,6 +231,7 @@ def order_product_view(request,pk):
         
             order.mobile=request.POST.get('mobile')
             order.address=request.POST.get('address')
+            order.customername=request.POST.get('customername')
             order.save()
             return render(request,'bazaar/order_placed.html',context=mydict)
     return render(request,'bazaar/place_order.html',context=mydict)
@@ -239,7 +247,7 @@ def customer_order_view(request):
 
 @login_required(login_url='login')
 def admin_order_view(request):
-    orders=models.Order.objects.all()
+    orders=models.Order.objects.all().order_by('id').reverse()
     return render(request,'bazaar/admin_order.html',{'orders':orders})
 
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <title>
+    
+  </title>
+  <link rel="icon" href="{% static "images/logo.png" %}" type="image/x-icon">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <style>
+    .jumotron{
+      height: fit-content;
+      border-radius:.0rem;
+    }
+    @media screen and (min-width: 601px) {
+  .xyz {
+    font-size: 20px;
+  }
+  .cor{
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .xyz {
+    font-size: 13px;
+  }
+  .cor{
+    height: 200px;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  {% include "bazaar/loader_whatsapp.html" %}
+  {% include "bazaar/navbar.html" %}
+  <br><br>
+  <div class="jumbotron" style="background-color: #0274be;  padding-top: 27px;padding-bottom: 2px;border-radius:.0rem; margin-bottom: 0px;">
+    <h5 style="color: white;" class="text-center xyz">किराना सामान चाहिए ? अभी कॉल कीजिये  +91-8709823192 , +91-9110176857
+    </h5>
+  </div>
+
+
+
+  
+  <marquee  direction="left"   height="100px" style="color: #EE1D29;font-size: 20px;">
+   आर्डर के बाद 12 घंटे के अंदर घर पे डिलीवरी दे दी जाएगी | आर्डर करने में कोई भी परेशानी हो तो कॉल कीजिये +91-8709823192 , +91-9110176857
+    </marquee>
+
+    {% include "bazaar/products.html" %}
+
+    
+  
+
+  
+
+
+
+  <hr>
+  <br>
+
+ 
+
+
+  <br><br>
+
+
+
+  {% include "bazaar/footer.html" %}
+ 
+
+
+
+
+</body>
+
+</html>

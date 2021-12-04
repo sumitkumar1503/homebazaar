@@ -46,6 +46,7 @@ urlpatterns = [
     path('customer-order', views.customer_order_view,name='customer-order'),
     path('admin-order', views.admin_order_view,name='admin-order'),
     path('customer-product', views.customer_product_view,name='customer-product'),
+    path('all-product', views.all_product_view,name='all-product'),
     path('admin-add-product', views.admin_add_product_view,name='admin-add-product'),
     path('admin-view-product', views.admin_view_product_view,name='admin-view-product'),
 ]
