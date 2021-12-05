@@ -90,6 +90,14 @@ def delete_customer_view(request,pk):
     customer.delete()
     return redirect('admin-customer')
 
+
+@login_required(login_url='login')
+def delete_order_view(request,pk):
+    order=models.Order.objects.get(id=pk)
+    order.delete()
+    return redirect('admin-order')
+
+
 @login_required(login_url='login')
 def admin_product_view(request):
     return render(request,'bazaar/admin_product.html')
@@ -143,7 +151,9 @@ def update_category_view(request,pk):
 @login_required(login_url='login')
 def admin_add_product_view(request):
     form1=forms.ProductForm()
-    mydict={'form1':form1}
+    mydict={'form1':form1,
+   
+    }
     if request.method=='POST':
         form1=forms.ProductForm(request.POST,request.FILES)
         if form1.is_valid():
@@ -154,7 +164,7 @@ def admin_add_product_view(request):
            product.save()
         else:
             print('form invalid')
-        return HttpResponseRedirect('/admin-view-product')
+        return HttpResponseRedirect('/admin-add-product')
     return render(request,'bazaar/admin_add_product.html',context=mydict)
 
 @login_required(login_url='login')

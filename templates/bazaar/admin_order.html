@@ -30,7 +30,7 @@ a:link {
 </head>
 
 <body>
- 
+  <br><br><br><br><br>
 
   {% if orders %}
   <h4 style="text-align:center;color: red;"><font face = "Comic sans MS" size ="7">Order Received</font></h4><br>
@@ -44,6 +44,7 @@ a:link {
         <th scope="col">Product</th>
         <th scope="col">Price</th>
         <th scope="col">Date</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -55,6 +56,7 @@ a:link {
         <td> {{m.product}}</td>
         <td>{{m.price}}</td>
         <td>{{m.date}}</td>
+        <td><a style="color:blue; text-decoration:none;font-size:25px;"href="{% url 'delete-order' m.id  %}"><i class="fas fa-trash-alt" style="font-size:30px;color:rgb(0, 0, 255)"></i></a></td>
       </tr>
       {% endfor %}
     </tbody>

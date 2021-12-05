@@ -35,7 +35,8 @@
       border: none;
       border-radius: 1.5rem;
       padding: 1%;
-      width: 20%;
+      width: 60%;
+      height:50px;
       cursor: pointer;
       background: #0062cc;
       color: #fff;
@@ -74,10 +75,10 @@ facebook : fb.com/sumit.luv
           <div class="col-md-6">
             
             <div class="form-group">
-                {% render_field form1.customername required="true" class="form-control" placeholder="आपका नाम" %}
+                {% render_field form1.customername required="true" class="form-control" placeholder="Your Name" %}
               </div>
               <div class="form-group">
-                {% render_field form1.address required="true" class="form-control" placeholder="पूरा पता" %}
+                {% render_field form1.address required="true" class="form-control" placeholder="Full Address" %}
               </div>
             
           
@@ -86,12 +87,12 @@ facebook : fb.com/sumit.luv
 
           <div class="col-md-6">
             <div class="form-group">
-                {% render_field form1.mobile required="true" class="form-control" placeholder="मोबाइल नंबर" %}
+                {% render_field form1.mobile required="true" class="form-control" placeholder="Mobile Number" %}
               </div>
              
           </div>
-        </div>
-        <button type="submit" class="btnSubmit">आर्डर करें</button>
+        </div><br>
+       <center> <button type="submit" class="btnSubmit">आर्डर करें</button></center>
       </div>
     </div>
   </div>

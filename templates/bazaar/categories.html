@@ -70,26 +70,27 @@
         {% for c in categories %}
 
       <div class="col-xl col-sm-3">
+        <a style="text-decoration: none;color: black;" href="{% url 'customer-view-product-by-category' c.id  %}">
         <div class="card">
           <img src="{% static c.photo.url %}" height="200px" width="200px" class="card-img-top"
             alt="...">
-            <a style="text-decoration: none;color: black;" href="{% url 'customer-view-product-by-category' c.id  %}">
+          
 
               <div class="card-body">
                 <h6 class="card-title text-center"> {{ c.englishname}} </h6>
                 <h6 class="card-title text-center"> {{ c.hindiname}} </h6>
     
               </div>
-            </a>
+        
 
-        </div>
+        </div>    </a>
       </div>
  
 <!-- card1 end -->
 {% if forloop.counter|divisibleby:"4" %}
     </div><br><br>
     <div class="row">
-<br><br><br><br><br>
+
 {% endif %}
   {% endfor %}
 </div>

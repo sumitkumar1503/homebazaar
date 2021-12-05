@@ -1,207 +1,107 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-  <style media="screen">
-    a:link {
-      text-decoration: none;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Roboto", sans-serif;
-    }
-
-    header {
-      position: fixed;
-      background: #22242A;
-      padding: 20px;
-      width: 100%;
-
-      z-index: 1;
-    }
-
-    .left_area h3 {
-      color: #fff;
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+         .bs-example {
       margin: 0px;
-      text-transform: uppercase;
-      font-size: 22px;
-      font-weight: 900;
-    }
-
-    .left_area span {
-      color: #19B3D3;
-    }
-
-    .logout_btn {
-      padding: 5px;
-      background: #19B3D3;
-      text-decoration: none;
-      float: right;
-      margin-top: -30px;
-      margin-right: 40px;
-      border-radius: 2px;
-      font-size: 15px;
-      font-weight: 600;
-      color: #fff;
-      transition: 0.5s;
 
     }
-
-    .logout_btn:hover {
-      background: #0B87A6;
-    }
-
-    .sidebar {
-      background: #2f323a;
-      margin-top: 70px;
-      padding-top: 30px;
-      position: fixed;
-      left: 0;
-      width: 250px;
-      height: 100%;
-      transition: 0.5s;
-      transition-property: left;
-    }
-
-    .sidebar .profile_image {
-      width: 100px;
-      height: 100px;
-      border-radius: 100px;
-      margin-bottom: 10px;
-    }
-
-    .sidebar h4 {
-      color: #ccc;
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
-
-    .sidebar a {
-      color: #fff;
-      display: block;
-      width: 100%;
-      line-height: 60px;
-      text-decoration: none;
-      padding-left: 40px;
-      box-sizing: border-box;
-      transition: 0.5s;
-
-    }
-
-    .sidebar a:hover {
-      background: #19B3D3;
-    }
-
-    .sidebar i {
-      padding-right: 10px;
-    }
-
-    label #sidebar_btn {
-      z-index: 1;
-      color: #fff;
-      position: relative;
-      cursor: pointer;
-      left: 10px;
+    .bg-dark {
+    background-color: #212529!important;
+}
+    .navbar-brand {
       font-size: 20px;
-      margin: 5px 0;
-      transition: 0.5s;
-      transition-property: color;
+      font-family: sans-serif;
+
+    }
+         /*---------------------------------------
+   Social section
+-----------------------------------------*/
+    footer {
+      padding: 0px 0px 0px 0px;
+      background-color: #212529;
+      margin: 0px;
     }
 
-    label #sidebar_btn:hover {
-      color: #19B3D3;
+    .fa {
+      padding: 20px;
+      font-size: 23px;
+      width: 60px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+      border-radius: 50%;
     }
 
-    #check:checked~.sidebar {
-      left: -190px;
-    }
-
-    #check:checked~.sidebar a span {
-      display: none;
-    }
-
-    #check:checked~.sidebar a {
-      font-size: 20px;
-      margin-left: 170px;
-      width: 80px;
-    }
-
-    .content {
-      margin-left: 250px;
-      background: url(background.png) no-repeat;
-      background-position: center;
-      background-size: cover;
-      height: 100vh;
-      transition: 0.5s;
-    }
-
-    #check:checked~.content {
-      margin-left: 60px;
-    }
-
-    #check {
-      display: none;
-    }
-    a:link {
+    .fa:hover {
+      opacity: 0.5;
       text-decoration: none;
     }
-  </style>
 
+    .fa-facebook {
+      background: #3B5998;
+      color: white;
+      margin-top: 30px;
+    }
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    .fa-whatsapp {
+      background: #25d366;
+      color: white;
+    }
 
+    .fa-twitter {
+      background: #55ACEE;
+      color: white;
+    }
 
+    .fa-instagram {
+      background: #125688;
+      color: white;
+    }
+
+    p {
+      text-align: center;
+
+    }
+    </style>
 </head>
-
 <body>
-
-  <input type="checkbox" id="check">
-  <!--header area start-->
-  <header>
-   
-    <div class="left_area">
-      <h3>
-        <label for="check">
-          Home Bazar<i class="fas fa-bars" id="sidebar_btn"></i>
-        </label>
-      </h3>
-      
-    </div>
-    <div class="right_area">
-      <a href="/logout" class="logout_btn">Logout</a>
-    </div>
-  </header>
-  <!--header area end-->
-  <!--sidebar start-->
-  <div class="sidebar">
     
 
-    <a href="/admin-dashboard"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-    <a href="/admin-order"><i class="fas fa-shopping-bag"></i><span>Order</span></a>
-    <a href="/admin-product"><i class="fab fa-product-hunt"></i><span>Product</span></a>
-   
-  </div>
-  <!--sidebar end-->
+    <div class="bs-example">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+          <a class="navbar-brand" href="/">
+            <img src="{% static "images/logo.png" %}" width="50" height="40" class="d-inline-block align-top" alt="">
+           <font face = "Comic sans MS" size =" 5">HomeBazar</font>
+          </a>
+    
+        </nav>
+      </div>
 
 
-  <!--content start-->
-  <div class="content">
-    <br><br><br><br><br>
-    {% block content %}
 
-    {% endblock content %}
+<div>
+	<!--content start-->
+	<div class="content">
 
+		{% block content %}
 
-    <br><br><br>
-    {% include "bazaar/footer.html" %}
-  </div>
-  
+		{% endblock content %}
+	</div>
+	<!--content end-->
+</div>
+{% include "bazaar/footer.html" %}
 </body>
-
 </html>
