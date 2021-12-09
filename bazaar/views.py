@@ -21,14 +21,8 @@ def home_view(request):
         return HttpResponseRedirect('afterlogin')
     return render(request,'bazaar/index.html',context=mydict)
 
-def is_customer(user):
-    return user.groups.filter(name='CUSTOMER').exists()
-
 def afterlogin_view(request):
-    if is_customer(request.user):
-        return redirect('customer-dashboard')
-    else:
-        return redirect('admin-dashboard')
+    return redirect('admin-dashboard')
 
 
 @login_required(login_url='login')
@@ -44,51 +38,6 @@ def admin_dashboard_view(request):
 
 
 
-@login_required(login_url='login')
-def customer_dashboard_view(request):
-    mydict={
-        'totalcategory':models.Category.objects.all().count(),
-        'totalproduct':models.Product.objects.all().count(),
-        'totalorder':models.Order.objects.all().filter(customer=models.Customer.objects.get(user_id=request.user.id)).count(),
-        'totalamount':models.Order.objects.all().filter(customer=models.Customer.objects.get(user_id=request.user.id)).aggregate(Sum('price'))['price__sum'],
-        'categories':models.Category.objects.all()
-    }
-    return render(request,'bazaar/customer_dashboard.html',context=mydict)
-
-
-
-def customer_signup_view(request):
-    form1=forms.CustomerUserForm()
-    form2=forms.CustomerExtraForm()
-    mydict={'form1':form1,'form2':form2}
-    if request.method=='POST':
-        form1=forms.CustomerUserForm(request.POST)
-        form2=forms.CustomerExtraForm(request.POST)
-        if form1.is_valid() and form2.is_valid():
-            user=form1.save()
-            user.set_password(user.password)
-            user.save()
-            f2=form2.save(commit=False)
-            f2.user=user
-            user2=f2.save()
-            group = Group.objects.get_or_create(name='CUSTOMER')
-            group[0].user_set.add(user)
-        return HttpResponseRedirect('login')
-    return render(request,'bazaar/customersignup.html',context=mydict)
-
-@login_required(login_url='login')
-def admin_customer_view(request):
-    customers=models.Customer.objects.all()
-    return render(request,'bazaar/admin_customer.html',{'customers':customers})
-
-
-@login_required(login_url='login')
-def delete_customer_view(request,pk):
-    customer=models.Customer.objects.get(id=pk)
-    user=models.User.objects.get(id=customer.user_id)
-    user.delete()
-    customer.delete()
-    return redirect('admin-customer')
 
 
 @login_required(login_url='login')
@@ -224,7 +173,6 @@ def all_product_view(request):
 
 def order_product_view(request,pk):
     order=models.Order()
-    #order.customer=models.Customer.objects.get(user_id=request.user.id)
     order.product=models.Product.objects.get(id=pk)
     order.category=models.Category.objects.get(id=order.product.categoryid)
     order.price=order.product.price
@@ -247,12 +195,6 @@ def order_product_view(request,pk):
     return render(request,'bazaar/place_order.html',context=mydict)
 
 
-@login_required(login_url='login')
-@user_passes_test(is_customer)
-def customer_order_view(request):
-    orders=models.Order.objects.all().filter(customer=models.Customer.objects.get(user_id=request.user.id))
-    return render(request,'bazaar/customer_order.html',{'orders':orders})
-
 
 
 @login_required(login_url='login')
@@ -261,11 +203,10 @@ def admin_order_view(request):
     return render(request,'bazaar/admin_order.html',{'orders':orders})
 
 
+def terms_view(request):
+    return render(request,'bazaar/terms.html')
+def privacy_view(request):
+    return render(request,'bazaar/privacy.html')
+def aboutus_view(request):
+    return render(request,'bazaar/aboutus.html')
 
-
-@login_required(login_url='login')
-@user_passes_test(is_customer)
-def customer_product_view(request):
-    products=models.Product.objects.all()
-    categories=models.Category.objects.all()
-    return render(request,'bazaar/customer_product.html',{'products':products,'categories':categories})

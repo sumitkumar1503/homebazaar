@@ -6,7 +6,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta content="HomeBazar xyz" name="author">
+  <title>HomeBazar xyz || Online Kirana Store In Muzaffarpur || {{category}}  </title>
+  <meta content="HomeBazar xyz || Online Kirana Store In Muzaffarpur " name="title">
+  <meta content="HomeBazar xyz ,Online Kirana Store In Muzaffarpur,  Kirana Store In Muzaffarpur,  Kirana In Muzaffarpur, Online Kirana,  Online Kirana In Muzaffarpur,  Online Store In Muzaffarpur, e-commerce, cart, checkout, payment, PayPal, shop, online shopping, online payment, payment gateway, products," name="keyword">
+<meta content="Shop online for fresh vegetables, fruits and grocery and get your order delivered at your doorstep. Enjoy instant delivery with Hello Kirana, This is a complete solution of an online grocery and ecommerce website." name="description">
+  <link rel="icon" href="{% static "images/logo.png" %}" type="image/x-icon">
   <style>
       button {
       border: none;
@@ -74,17 +79,17 @@
   </style>
 </head>
 
-<body>
+<body>  {% include "bazaar/loader_whatsapp.html" %}
   <br>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="section-heading mb-2 text-center">
-          <p style="font-family: 'Nunito', sans-serif; color: rgb(228, 142, 13);">Products Under {{category}}</p>
+          <h3 style="font-family: 'Nunito', sans-serif; color: rgb(2 116 190);">{{category}}</h3>
         </div>
       </div>
     </div>
-
+<br>
     <div class="row">
 
         {% for c in products %}
@@ -93,19 +98,19 @@
         <div class="card">
           <img src="{% static c.photo.url %}" height="200px" width="200px" class="card-img-top"
             alt="...">
-           
+
               <div class="card-body">
                 <h6 class="card-title text-center"> {{ c.englishname}} |  {{ c.hindiname}} </h6>
-    
-                <p class="card-title text-center">  {{ c.quantity}} - {{ c.price}}</p>
-             
+
+                <p class="card-title text-center">  {{ c.quantity}} - {{ c.price}} ₹</p>
+
                 <p><button><a style="text-decoration: none;color: white;" href="{% url 'order-product' c.id  %}">Order Now</a></button>
               </div>
-           
+
 
         </div>
       </div>
- 
+
 <!-- card1 end -->
 {% if forloop.counter|divisibleby:"4" %}
     </div><br><br>

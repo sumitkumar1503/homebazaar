@@ -6,7 +6,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <meta content="HomeBazar xyz" name="author">
+  <title>HomeBazar xyz || Online Kirana Store In Muzaffarpur </title>
+  <meta content="HomeBazar xyz || Online Kirana Store In Muzaffarpur " name="title">
+  <meta content="HomeBazar xyz ,Online Kirana Store In Muzaffarpur,  Kirana Store In Muzaffarpur,  Kirana In Muzaffarpur, Online Kirana,  Online Kirana In Muzaffarpur,  Online Store In Muzaffarpur, e-commerce, cart, checkout, payment, PayPal, shop, online shopping, online payment, payment gateway, products," name="keyword">
+<meta content="Shop online for fresh vegetables, fruits and grocery and get your order delivered at your doorstep. Enjoy instant delivery with Hello Kirana, This is a complete solution of an online grocery and ecommerce website." name="description">
+  <link rel="icon" href="{% static "images/logo.png" %}" type="image/x-icon">
   <style media="screen">
     a:link {
       text-decoration: none;
@@ -51,7 +56,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
-
+{% include "bazaar/loader_whatsapp.html" %}
 <!--
 written By : sumit kumar
 facebook : fb.com/sumit.luv
@@ -73,15 +78,15 @@ facebook : fb.com/sumit.luv
        </h6> <br>
         <div class="row">
           <div class="col-md-6">
-            
+
             <div class="form-group">
                 {% render_field form1.customername required="true" class="form-control" placeholder="Your Name" %}
               </div>
               <div class="form-group">
                 {% render_field form1.address required="true" class="form-control" placeholder="Full Address" %}
               </div>
-            
-          
+
+
           </div>
 
 
@@ -89,7 +94,7 @@ facebook : fb.com/sumit.luv
             <div class="form-group">
                 {% render_field form1.mobile required="true" class="form-control" placeholder="Mobile Number" %}
               </div>
-             
+
           </div>
         </div><br>
        <center> <button type="submit" class="btnSubmit">आर्डर करें</button></center>

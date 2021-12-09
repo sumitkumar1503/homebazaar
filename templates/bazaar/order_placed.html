@@ -10,6 +10,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="HomeBazar xyz" name="author">
+  <title>HomeBazar xyz || Online Kirana Store In Muzaffarpur </title>
+  <meta content="HomeBazar xyz || Online Kirana Store In Muzaffarpur " name="title">
+  <meta content="HomeBazar xyz ,Online Kirana Store In Muzaffarpur,  Kirana Store In Muzaffarpur,  Kirana In Muzaffarpur, Online Kirana,  Online Kirana In Muzaffarpur,  Online Store In Muzaffarpur, e-commerce, cart, checkout, payment, PayPal, shop, online shopping, online payment, payment gateway, products," name="keyword">
+<meta content="Shop online for fresh vegetables, fruits and grocery and get your order delivered at your doorstep. Enjoy instant delivery with Hello Kirana, This is a complete solution of an online grocery and ecommerce website." name="description">
+  <link rel="icon" href="{% static "images/logo.png" %}" type="image/x-icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -26,7 +32,7 @@
 </head>
 
 <body>
- 
+  {% include "bazaar/loader_whatsapp.html" %}
 <center><br>
     <h4 style="color: blue;">Order Placed Successfully !!!</h4><br>
     <p>{{product}} : {{product.quantity }} -  {{product.price}}</p><br>

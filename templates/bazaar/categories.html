@@ -3,6 +3,12 @@
 <html lang="en">
 
 <head>
+      <meta content="HomeBazar xyz" name="author">
+  <title>HomeBazar xyz || Online Kirana Store In Muzaffarpur </title>
+  <meta content="HomeBazar xyz || Online Kirana Store In Muzaffarpur " name="title">
+  <meta content="HomeBazar xyz ,Online Kirana Store In Muzaffarpur,  Kirana Store In Muzaffarpur,  Kirana In Muzaffarpur, Online Kirana,  Online Kirana In Muzaffarpur,  Online Store In Muzaffarpur, e-commerce, cart, checkout, payment, PayPal, shop, online shopping, online payment, payment gateway, products," name="keyword">
+<meta content="Shop online for fresh vegetables, fruits and grocery and get your order delivered at your doorstep. Enjoy instant delivery with Hello Kirana, This is a complete solution of an online grocery and ecommerce website." name="description">
+  <link rel="icon" href="{% static "images/logo.png" %}" type="image/x-icon">
 
   <style>
     @media (max-width: 576px) {
@@ -74,18 +80,18 @@
         <div class="card">
           <img src="{% static c.photo.url %}" height="200px" width="200px" class="card-img-top"
             alt="...">
-          
+
 
               <div class="card-body">
                 <h6 class="card-title text-center"> {{ c.englishname}} </h6>
                 <h6 class="card-title text-center"> {{ c.hindiname}} </h6>
-    
+
               </div>
-        
+
 
         </div>    </a>
       </div>
- 
+
 <!-- card1 end -->
 {% if forloop.counter|divisibleby:"4" %}
     </div><br><br>

@@ -2,15 +2,6 @@ from django import forms
 from django.contrib.auth.models import User
 from . import models
 
-#for student related form
-class CustomerUserForm(forms.ModelForm):
-    class Meta:
-        model=User
-        fields=['first_name','last_name','username','password']
-class CustomerExtraForm(forms.ModelForm):
-    class Meta:
-        model=models.Customer
-        fields=['mobile','address']
 
 class CategoryForm(forms.ModelForm):
     class Meta:
